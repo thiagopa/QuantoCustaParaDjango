@@ -1,5 +1,5 @@
 from mongoengine import *
-from blog.settings import DBNAME
+from quantocustaparadjango.settings import DBNAME
 
 
 # Create your models here.
