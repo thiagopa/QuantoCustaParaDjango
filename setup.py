@@ -13,6 +13,9 @@ install_requires=[
     "mongoengine",
 ]
 
+tests_require = ['selenium',
+                 'mock']
+
 
 setup(
     name = "br.mib.quantocustapara",
@@ -30,6 +33,7 @@ setup(
         "License :: Proprietary",
     ],
     install_requires=install_requires,
+    tests_require=tests_require,
     include_package_data=True,
     zip_safe=False,
 )

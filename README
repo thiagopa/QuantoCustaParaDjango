@@ -2,7 +2,7 @@ Projeto Quanto Custa Para
 
 Django 1.4 + MongoEngine
 
-MIB Serviçoes em Tecnologia da Informação
+MIB Serviços em Tecnologia da Informação
 
 Desenvolvedores:
 
@@ -11,3 +11,5 @@ Thiago Pagonha
 Weber Santos
 
 Só dar um python setup.py develop e se divertir ;P
+
+Para rodar os testes (selenium) use python setup.py test e se divirta mais ainda :D
