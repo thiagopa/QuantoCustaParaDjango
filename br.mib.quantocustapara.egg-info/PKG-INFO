@@ -1,0 +1,26 @@
+Metadata-Version: 1.1
+Name: br.mib.quantocustapara
+Version: 0.0.1
+Summary: Prototipo do software Quanto Custa Para
+Home-page: UNKNOWN
+Author: Thiago Pagonha
+Author-email: thi.pag@gmail.com
+License: Proprietary
+Description: Projeto Quanto Custa Para
+        
+        Django 1.4 + MongoEngine
+        
+        MIB Serviçoes em Tecnologia da Informação
+        
+        Desenvolvedores:
+        
+        Fillipe Cordeiro
+        Thiago Pagonha
+        Weber Santos
+        
+        Só dar um python setup.py develop e se divertir ;P
+Keywords: quanto custa para
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Topic :: Utilities
+Classifier: License :: Proprietary

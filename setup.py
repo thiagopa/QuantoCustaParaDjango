@@ -17,12 +17,12 @@ install_requires=[
 setup(
     name = "br.mib.quantocustapara",
     version = "0.0.1",
-    author = "MIB Serviços em Tecnologia da Informação",
+    author = "Thiago Pagonha",
     author_email = "thi.pag@gmail.com",
-    description = ("Protótipo do software Quanto Custa Para"),
+    description = ("Prototipo do software Quanto Custa Para"),
     license = "Proprietary",
     keywords = "quanto custa para",
-    packages=['an_example_pypi_project', 'tests'],
+    packages=['br.mib.quantocustapara'],
     long_description=read('README'),
     classifiers=[
         "Development Status :: 3 - Alpha",
@@ -30,7 +30,6 @@ setup(
         "License :: Proprietary",
     ],
     install_requires=install_requires,
-    packages=find_packages(exclude=['ez_setup']),
     include_package_data=True,
     zip_safe=False,
 )

@@ -1,0 +1,13 @@
+README
+setup.py
+br.mib.quantocustapara.egg-info/PKG-INFO
+br.mib.quantocustapara.egg-info/SOURCES.txt
+br.mib.quantocustapara.egg-info/dependency_links.txt
+br.mib.quantocustapara.egg-info/not-zip-safe
+br.mib.quantocustapara.egg-info/requires.txt
+br.mib.quantocustapara.egg-info/top_level.txt
+br/mib/quantocustapara/__init__.py
+br/mib/quantocustapara/manage.py
+br/mib/quantocustapara/settings.py
+br/mib/quantocustapara/urls.py
+br/mib/quantocustapara/wsgi.py
