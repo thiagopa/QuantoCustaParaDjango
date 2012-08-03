@@ -35,6 +35,11 @@
 						<li><a href="#" class="normal">fazer uma noite de hamburguer?</a><span></span></li>
 						<li><a href="#" class="large">fazer um chá de bebê?</a><span></span></li>
 						<li><a href="#" class="small">fazer uma torta?</a><span></span></li>
+						
+						{% for ct in cloud_list %}
+							<li><a href="#" class="{{ct.size}}">fazer um {{ct.name}}?</a><span></span></li>
+						{% endfor %}
+						
 					</ul>
             		
             	<div id="columns">
