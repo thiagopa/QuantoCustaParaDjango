@@ -1,5 +1,5 @@
 from mongoengine import *
-from blog.settings import DBNAME
+from settings import DBNAME
 
 connect(DBNAME)
 
