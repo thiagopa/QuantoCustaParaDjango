@@ -4,10 +4,11 @@ when you run "manage.py test".
 
 Replace this with more appropriate tests for your application.
 """
-
+from django.test import TestCase
 from django.test import LiveServerTestCase
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+from models import CloudTag
 
 class SearchTest(LiveServerTestCase):
 
@@ -35,3 +36,23 @@ class SearchTest(LiveServerTestCase):
 
         # TODO: use the admin site to create a Poll
         self.fail('finish this test')
+        
+class ModelTest(TestCase):
+    def test_save_tag(self):
+        
+        CloudTag.objects.delete()
+        
+        tag = CloudTag()
+        tag.name = "brigadeiro"
+        tag.size = "large"
+        
+        tag.save()
+        
+        all_tags_in_database = CloudTag.objects.all()
+        
+        self.assertEquals(len(all_tags_in_database),1)
+        only_tag_in_database = all_tags_in_database[0]
+        self.assertEquals(only_tag_in_database, tag)
+        
+        self.assertEquals(only_tag_in_database.name, "brigadeiro")
+        self.assertEquals(only_tag_in_database.size, "large")
