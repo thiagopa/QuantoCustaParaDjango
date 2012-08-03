@@ -11,7 +11,6 @@ def read(fname):
 install_requires=[
     "Django >= 1.4",
     "mongoengine",
-    "mongoadmin"
 ]
 
 tests_require = ['selenium',
