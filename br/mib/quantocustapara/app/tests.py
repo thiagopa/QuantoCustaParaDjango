@@ -1,8 +1,6 @@
+#-*- coding: utf-8 -*-
 """
-This file demonstrates writing tests using the unittest module. These will pass
-when you run "manage.py test".
-
-Replace this with more appropriate tests for your application.
+    Primeiro vem os tests do selenium, depois os testes unitários
 """
 from django.test import TestCase
 from django.test import LiveServerTestCase
@@ -56,3 +54,10 @@ class ModelTest(TestCase):
         
         self.assertEquals(only_tag_in_database.name, "brigadeiro")
         self.assertEquals(only_tag_in_database.size, "large")
+        
+    def test_article(self):
+        
+        tag = CloudTag()
+        tag.name = "torta"
+        
+        self.assertEquals(tag.article(),"a")

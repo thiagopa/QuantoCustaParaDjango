@@ -1,22 +1,6 @@
-<!DOCTYPE html>
-<html>	
-	
-	<head>		
-		
-		<meta charset="utf-8"/>
-		<title>Quanto Custa Para...</title>
-		
-		<link rel="shortcut icon" type="image/x-icon" href="/static/images/favicon.ico"/>
-		<link rel="stylesheet" href="/static/css/style.css" />
-				
-	</head>
-	
-	<body>	
-		
-		<div id="wrap">
-        	
-        	<div id="header">
-            	
+{% extends "template.html" %}
+
+{% block header %}            	
         		<h1>Quanto Custa Para</h1>
         		       	
         		<form id="form">
@@ -28,7 +12,7 @@
 					
 					<ul>
 						{% for ct in cloud_list %}
-							<li><a href="#" class="{{ct.size}}">fazer um {{ct.name}}?</a><span></span></li>
+							<li><a href="#" class="{{ct.size}}">fazer um{{ct.article}} {{ct.name}}?</a><span></span></li>
 						{% endfor %}
 					</ul>
             		
@@ -40,10 +24,9 @@
             	<p><img class="botimg" src="/static/images/config-users.png"/>Use seu perfil do facebook para navegar. Crie e compartilhe seus eventos com seus amigos.</p>	
             		
             	</div><!--end nav-->
+{% endblock %}
 
-            </div><!--end header-->
-            
-            <div id="frontpage-content">      
+{% block main %}
     			
     			<h4>O que as pessoas estão fazendo agora:</h4>
     			
@@ -53,30 +36,4 @@
     				<p>Formatura<span></span><a href="#" class="custabut">Quanto Custa</a></p>
     			</div>
     	
-    			    			
-    		</div><!--end frontpage-content--> 
-    		
-    		<div id="footer">
-				
-				<p class="copyright"><a href="#">&copy; 2012 QuantoCustaPara</a></p>
-				<p><a href="#">Sobre</a></p>
-				<p><a href="#">Mídia</a></p>
-				<p><a href="#">Blog</a></p>
-				<p><a href="#">Termos</a></p>
-				<p><a href="#">Privacidade</a></p>
-				<p>
-					<a href="#">FaleConosco</a>
-					<a href="https://www.facebook.com/QuantoCustaPara" class="buttons"><img src="/static/images/facebook-icon-16x16.png"/></a>
-					<a href="https://www.twitter.com/QuantoCustaPara" class="buttons"><img src="/static/images/twitter16x16.gif"/></a>
-					<a href="#" class="buttons"><img src="/static/images/th_rss-icon-16x16.gif"/></a>
-				</p>
-				
-				 
-				
-			</div><!--end footer-->
-            
-    	</div><!--end wrap-->	
-    	
-	</body>	
-	
-</html>
+{% endblock %}
