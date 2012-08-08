@@ -3,7 +3,7 @@
 {% block header %}            	
         		<h1>Quanto Custa Para</h1>
         		       	
-        		<form id="form">
+        		<form id="form" action="/querofazer/" method="post">
         			<input name="search" type="text" autofocus="" placeholder="quanto custa para fazer um..."/>
         		</form>
         		            	
@@ -37,7 +37,19 @@
     			</div>
     			
     			<div id="frontpage-intro" class="right facebook_iframe">
-    				<div class="fb-like" data-href="http://www.quantocustapara.com.br" data-send="true" data-width="450" data-show-faces="true"></div>
+					<div id="fb-root"></div>
+						<script>
+							( function(d, s, id) {
+									var js, fjs = d.getElementsByTagName(s)[0];
+									if (d.getElementById(id))
+										return;
+									js = d.createElement(s);
+									js.id = id;
+									js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1&appId=348662765211349";
+									fjs.parentNode.insertBefore(js, fjs);
+								}(document, 'script', 'facebook-jssdk'));
+						</script>
+					<div class="fb-like" data-href="http://www.quantocustapara.com.br" data-send="true" data-width="285" data-show-faces="true"></div>
     			</div>	
     			 
     	
