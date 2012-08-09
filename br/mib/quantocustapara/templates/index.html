@@ -3,7 +3,7 @@
 {% block header %}            	
         		<h1>Quanto Custa Para</h1>
         		       	
-        		<form id="form" action="/querofazer/" method="post">
+        		<form id="form" action="{% url app.views.quero_fazer %}" method="post">
         			<input name="search" type="text" autofocus="" placeholder="quanto custa para fazer um..."/>
         		</form>
         		            	

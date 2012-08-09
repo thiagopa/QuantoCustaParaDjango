@@ -1,18 +1,21 @@
 #-*- coding: utf-8 -*-
 import os
+from mongoengine import connect
 # Django settings for quantocustaparadjango project.
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
+     ('Thiago Pagonha', 'thi.pag@gmail.com'),
 )
 
 MANAGERS = ADMINS
 APP_DIR = os.path.dirname( globals()['__file__'] )
 
 DBNAME = 'quantocustapara'
+
+connect(DBNAME)
 
 # Usado para os testes do selenium
 DATABASES = {
@@ -36,7 +39,7 @@ SITE_ID = 1
 
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
-USE_I18N = True
+USE_I18N = False
 
 # If you set this to False, Django will not format dates, numbers and
 # calendars according to the current locale.
@@ -113,11 +116,11 @@ TEMPLATE_DIRS = (
 )
 
 INSTALLED_APPS = (
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.sites',
-    'django.contrib.messages',
+    #'django.contrib.auth',
+    #'django.contrib.contenttypes',
+    #'django.contrib.sessions',
+    #'django.contrib.sites',
+    #'django.contrib.messages',
     'django.contrib.staticfiles',
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',

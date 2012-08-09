@@ -1,8 +1,5 @@
 from mongoengine import *
-from settings import DBNAME
 from constants import A
-
-connect(DBNAME)
 
 class CloudTag(Document):
     

@@ -7,6 +7,8 @@ def index(request):
     
     return render_to_response('index.html', dict(cloud_list=CloudTag.objects.all()))
 
-def wannado(request):
+def quero_fazer(request):
     
-    return render_to_response('edit.html', context_instance=RequestContext(request))
+    
+    
+    return render_to_response('edit.html')
