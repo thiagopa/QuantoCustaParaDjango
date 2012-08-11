@@ -11,6 +11,8 @@ def read(fname):
 install_requires=[
     "Django >= 1.4",
     "mongoengine",
+    "urllib2",
+    "buscape"
 ]
 
 tests_require = ['selenium',
@@ -36,4 +38,7 @@ setup(
     tests_require=tests_require,
     include_package_data=True,
     zip_safe=False,
+    dependency_links = [
+        "https://github.com/downloads/thiagopa/QuantoCustaParaDjango/buscape.py#egg=buscape"
+    ]
 )
