@@ -15,6 +15,8 @@ APP_DIR = os.path.dirname( globals()['__file__'] )
 
 DBNAME = 'quantocustapara'
 
+BUSCAPE_APP_ID = '30507a393778387763314d3d'
+
 connect(DBNAME)
 
 # Usado para os testes do selenium
