@@ -7,6 +7,10 @@ from django.test import LiveServerTestCase
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from models import CloudTag
+from buscape import Buscape
+from settings import BUSCAPE_APP_ID 
+
+import unittest
 
 class SearchTest(LiveServerTestCase):
 
@@ -30,11 +34,8 @@ class SearchTest(LiveServerTestCase):
         search_field.send_keys(Keys.RETURN)
 
         body = self.browser.find_element_by_tag_name('body')
-        self.assertIn('Quanto Custa Para', body.text)
+        self.assertIn('churrasco', body.text)
 
-        # TODO: use the admin site to create a Poll
-        self.fail('finish this test')
-        
 class ModelTest(TestCase):
     def test_save_tag(self):
         
@@ -61,3 +62,28 @@ class ModelTest(TestCase):
         tag.name = "torta"
         
         self.assertEquals(tag.article(),"a")
+
+class BuscapeTest(TestCase):
+    
+    def setUp(self):
+        
+        buscape = Buscape(BUSCAPE_APP_ID)
+
+        self.response = buscape.find_offer_list(keyword='picanha')
+
+    def test_offer_list(self):
+        
+        try:
+            offer = self.response['data']['offer'][0]['offer'];
+            
+            self.assertIsNotNone(offer['price']['value'])
+            self.assertIsNotNone(offer['thumbnail']['url'])
+            self.assertIsNotNone(offer['seller']['sellername'])
+            
+        except( KeyError ) :
+            self.fail("Api Quebrada")    
+        
+    @unittest.expectedFailure
+    def test_broken_offer(self):
+
+        self.response['data']['minha_vo_pelada']

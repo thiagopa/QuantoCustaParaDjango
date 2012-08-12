@@ -3,6 +3,16 @@
 
 {% block main %} 
 
-{{result}}
+ {{name}}
+
+ {% for item in items %}
+ 
+ 	<p>{{item.name}}</p>
+ 	
+ 	<img src="{{item.thumbnail}}"/>
+ 	<p>{{item.price}}</p>
+ 	<p>{{item.seller}}</p>
+ 
+ {% endfor %}
 
 {% endblock main %}

@@ -21,10 +21,10 @@ def quero_fazer(request):
 
     for item in productService.items :
         
-        offer = buscape.find_offer_list(keyword=item.name)['data']['offer'][0]
+        offer = buscape.find_offer_list(keyword=item.name)['data']['offer'][0]['offer']
 
         item.price = offer['price']['value']
-        item.thumbnail =  offer['thumbnail']
-        item.seller = offer['seller']['sellerName']
+        item.thumbnail =  offer['thumbnail']['url']
+        item.seller = offer['seller']['sellername']
     
-    return render_to_response('edit.html', dict(result=productService.items))
+    return render_to_response('edit.html', dict(items=productService.items,name=productService.name))
