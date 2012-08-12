@@ -11,3 +11,12 @@ class CloudTag(Document):
             return A
         else :
             return ""
+
+class Item(EmbeddedDocument):
+    name = StringField(max_length=50)            
+        
+class ProductService(Document):
+    
+    name = StringField(max_length=50)
+    items = ListField(EmbeddedDocumentField(Item))
+

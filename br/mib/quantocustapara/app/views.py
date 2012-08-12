@@ -1,6 +1,6 @@
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from models import CloudTag
+from models import *
 import datetime
 
 from buscape import Buscape
@@ -13,8 +13,18 @@ def index(request):
 
 def quero_fazer(request):
     
-    busca = Buscape(BUSCAPE_APP_ID)
+    buscape = Buscape(BUSCAPE_APP_ID)
 
-    result = busca.find_category_list(categoryID=77)
+    searchWord = request.POST['search']
+
+    productService = ProductService.objects(name=searchWord).first()
+
+    for item in productService.items :
+        
+        offer = buscape.find_offer_list(keyword=item.name)['data']['offer'][0]
+
+        item.price = offer['price']['value']
+        item.thumbnail =  offer['thumbnail']
+        item.seller = offer['seller']['sellerName']
     
-    return render_to_response('edit.html', dict(result=result))
+    return render_to_response('edit.html', dict(result=productService.items))
