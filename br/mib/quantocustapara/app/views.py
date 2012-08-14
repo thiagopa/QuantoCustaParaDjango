@@ -1,7 +1,11 @@
+#-*- coding: utf-8 -*-
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from models import *
 import datetime
+import logging
+
+logger = logging.getLogger(__name__)
 
 from buscape import Buscape
 
@@ -21,10 +25,11 @@ def quero_fazer(request):
 
     for item in productService.items :
         
-        offer = buscape.find_offer_list(keyword=item.name)['data']['offer'][0]['offer']
+        logger.info(u"Querying Buscapé for %s" % item.name)
+        offer = buscape.find_offer_list(keyword=item.name).offer[0].offer
 
-        item.price = offer['price']['value']
-        item.thumbnail =  offer['thumbnail']['url']
-        item.seller = offer['seller']['sellername']
+        item.price = offer.price.value
+        item.thumbnail = offer.thumbnail.url
+        item.seller = offer.seller.sellername
     
     return render_to_response('edit.html', dict(items=productService.items,name=productService.name))

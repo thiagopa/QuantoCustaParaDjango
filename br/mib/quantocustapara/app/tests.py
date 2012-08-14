@@ -37,24 +37,24 @@ class SearchTest(LiveServerTestCase):
         self.assertIn('churrasco', body.text)
 
 class ModelTest(TestCase):
+    
+    TEST_NAME = "testName"
+    TEST_SIZE = "testSize"
+    
     def test_save_tag(self):
         
-        CloudTag.objects.delete()
-        
-        tag = CloudTag()
-        tag.name = "brigadeiro"
-        tag.size = "large"
+        tag = CloudTag(name=self.TEST_NAME,size=self.TEST_SIZE)
         
         tag.save()
         
-        all_tags_in_database = CloudTag.objects.all()
+        test_tag = CloudTag.objects(name=self.TEST_NAME).first()
         
-        self.assertEquals(len(all_tags_in_database),1)
-        only_tag_in_database = all_tags_in_database[0]
-        self.assertEquals(only_tag_in_database, tag)
+        self.assertEquals(test_tag, tag)
         
-        self.assertEquals(only_tag_in_database.name, "brigadeiro")
-        self.assertEquals(only_tag_in_database.size, "large")
+        self.assertEquals(test_tag.name, self.TEST_NAME)
+        self.assertEquals(test_tag.size, self.TEST_SIZE)
+        
+        tag.delete()
         
     def test_article(self):
         
@@ -74,11 +74,11 @@ class BuscapeTest(TestCase):
     def test_offer_list(self):
         
         try:
-            offer = self.response['data']['offer'][0]['offer'];
+            offer = self.response.offer[0].offer;
             
-            self.assertIsNotNone(offer['price']['value'])
-            self.assertIsNotNone(offer['thumbnail']['url'])
-            self.assertIsNotNone(offer['seller']['sellername'])
+            self.assertIsNotNone(offer.price.value)
+            self.assertIsNotNone(offer.thumbnail.url)
+            self.assertIsNotNone(offer.seller.sellername)
             
         except( KeyError ) :
             self.fail("Api Quebrada")    
@@ -86,4 +86,4 @@ class BuscapeTest(TestCase):
     @unittest.expectedFailure
     def test_broken_offer(self):
 
-        self.response['data']['minha_vo_pelada']
+        self.response.minha_vo_pelada

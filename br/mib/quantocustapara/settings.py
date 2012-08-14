@@ -1,6 +1,6 @@
 #-*- coding: utf-8 -*-
 import os
-from mongoengine import connect
+import mongoengine 
 # Django settings for quantocustaparadjango project.
 
 DEBUG = True
@@ -13,11 +13,12 @@ ADMINS = (
 MANAGERS = ADMINS
 APP_DIR = os.path.dirname( globals()['__file__'] )
 
-DBNAME = 'quantocustapara'
+DB_NAME = 'quantocustapara'
 
 BUSCAPE_APP_ID = '30507a393778387763314d3d'
 
-connect(DBNAME)
+# Conectando na Base de Dados Principal
+mongoengine.connect(DB_NAME)
 
 # Usado para os testes do selenium
 DATABASES = {
@@ -144,12 +145,26 @@ LOGGING = {
             '()': 'django.utils.log.RequireDebugFalse'
         }
     },
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(name)s %(message)s'
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+           
     'handlers': {
         'mail_admins': {
             'level': 'ERROR',
             'filters': ['require_debug_false'],
             'class': 'django.utils.log.AdminEmailHandler'
-        }
+        },
+        'console':{
+            'level':'DEBUG',
+            'class':'logging.StreamHandler',
+            'formatter': 'verbose'
+        }    
     },
     'loggers': {
         'django.request': {
@@ -157,5 +172,14 @@ LOGGING = {
             'level': 'ERROR',
             'propagate': True,
         },
+        'app': {
+            'handlers': ['console'],
+            'level': 'DEBUG'
+        },
+        'buscape': {
+            'handlers': ['console'],
+            'level': 'DEBUG'
+        }
+
     }
 }

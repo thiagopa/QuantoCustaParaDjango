@@ -11,7 +11,7 @@ def read(fname):
 install_requires=[
     "Django >= 1.4",
     "mongoengine",
-    "urllib2",
+    "restfulie",
     "buscape"
 ]
 
