@@ -1,14 +1,7 @@
 {% extends "template.html" %}
 
 {% block header %}            	
-        		<h1>Quanto Custa Para</h1>
-        		       	
-        		<form id="form" action="{% url app.views.quero_fazer %}" method="post">
-        			<input name="search" type="text" autofocus="" placeholder="quanto custa para fazer um..."/>
-        		</form>
-        		            	
-
-            	<div id="nav">
+            	<div id="nav" class="separator_top separator_bottom">
 					
 					<ul>
 						{% for ct in cloud_list %}
@@ -30,13 +23,13 @@
     			
     			<h4>O que as pessoas estão fazendo agora:</h4>
     			
-    			<div id="frontpage-intro" class="left">
+    			<div class="frontpage-intro left">
     				<p>Churrasco <span></span><a href="#" class="custabut">Quanto Custa</a></p>
     				<p>Brigadeiro<span></span><a href="#" class="custabut">Quanto Custa</a></p>
     				<p>Formatura<span></span><a href="#" class="custabut">Quanto Custa</a></p>
     			</div>
     			
-    			<div id="frontpage-intro" class="right facebook_iframe">
+    			<div class="frontpage-intro right facebook_iframe">
 					<div id="fb-root"></div>
 						<script>
 							( function(d, s, id) {

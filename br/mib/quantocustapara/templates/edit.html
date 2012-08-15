@@ -1,18 +1,43 @@
 {% extends "template.html" %}
 
+{% block header %}            	
+	<div id="nav" class="separator_top">
+		 <h2>Fazer um{{productService.article}} {{productService.name}}?</h2>
+	</div>
+{% endblock header %}
 
 {% block main %} 
 
- {{name}}
+<div id="columns">
 
- {% for item in items %}
- 
- 	<p>{{item.name}}</p>
+	<div>
+		categorias
+		valor
+		avaliação
+		pessoas
+		convidar
+	</div>
+
+	<div>
+		middlePanel
+ 	<ul>
+ 	{% for item in productService.items %}
+ 	<li>
+ 	<span>{{item.name}}</span>
  	
  	<img src="{{item.thumbnail}}"/>
- 	<p>{{item.price}}</p>
- 	<p>{{item.seller}}</p>
- 
- {% endfor %}
+ 	<span>{{item.price}}</span>
+ 	<span>{{item.seller}}</span>
+ 	
+ 	</li>
+ 	{% endfor %}
+ 	</ul>
+ 	</div>
+ 	
+ 	<div>
+ 		publicidade
+ 	</div>
+
+</div>
 
 {% endblock main %}

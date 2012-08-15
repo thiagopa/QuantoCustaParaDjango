@@ -15,6 +15,13 @@
 		<div id="wrap">
         	
         	<div id="header">
+         		{% block headerform %}
+	         		 <h1>Quanto Custa Para</h1>
+	        		       	
+	        		<form id="form" action="{% url app.views.quero_fazer %}" method="post">
+	        			<input name="search" type="text" autofocus="" placeholder="quanto custa para fazer um..."/>
+	        		</form>
+         		{% endblock %} 
          		{% block header %} {% endblock %}
             </div><!--end header-->
             
@@ -22,7 +29,7 @@
 				{% block main %} {% endblock %} 
     		</div><!--end frontpage-content--> 
     		
-    		<div id="footer">
+    		<div id="footer" class="separator_top">
 				
 				<p class="copyright"><a href="#">&copy; 2012 QuantoCustaPara</a></p>
 				<p><a href="#">Sobre</a></p>

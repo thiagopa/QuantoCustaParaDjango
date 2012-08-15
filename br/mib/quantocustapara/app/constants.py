@@ -5,3 +5,11 @@
 
 # Artigo definido Feminino
 A = "a"
+
+# Páginas html
+
+INDEX_HTML = "index.html"
+EDIT_HTML = "edit.html"
+
+# Parâmetros de Requisição
+SEARCH_PARAM = 'search'

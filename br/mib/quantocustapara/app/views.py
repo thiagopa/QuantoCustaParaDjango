@@ -4,6 +4,7 @@ from django.template import RequestContext
 from models import *
 import datetime
 import logging
+from constants import *
 
 logger = logging.getLogger(__name__)
 
@@ -13,13 +14,13 @@ from settings import BUSCAPE_APP_ID
 
 def index(request):
     
-    return render_to_response('index.html', dict(cloud_list=CloudTag.objects.all()))
+    return render_to_response(INDEX_HTML, dict(cloud_list=CloudTag.objects.all()))
 
 def quero_fazer(request):
     
     buscape = Buscape(BUSCAPE_APP_ID)
 
-    searchWord = request.POST['search']
+    searchWord = request.POST[SEARCH_PARAM]
 
     productService = ProductService.objects(name=searchWord).first()
 
@@ -32,4 +33,4 @@ def quero_fazer(request):
         item.thumbnail = offer.thumbnail.url
         item.seller = offer.seller.sellername
     
-    return render_to_response('edit.html', dict(items=productService.items,name=productService.name))
+    return render_to_response(EDIT_HTML, dict(productService=productService))
